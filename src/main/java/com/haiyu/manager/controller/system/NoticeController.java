@@ -1,7 +1,9 @@
 package com.haiyu.manager.controller.system;
 
 import com.haiyu.manager.pojo.Disease;
+import com.haiyu.manager.pojo.Notice;
 import com.haiyu.manager.service.DiseaseService;
+import com.haiyu.manager.service.NoticeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,26 +20,26 @@ import java.util.List;
  * @Date 2021-5-05 16:44
  */
 @Controller
-@RequestMapping("/disease")
-public class DiseaseController {
+@RequestMapping("/notice")
+public class NoticeController {
 
     @Autowired
-    private DiseaseService diseaseService;
+    private NoticeService noticeService;
 
     //获取疾病信息
     @RequestMapping("/show")
-    private String showDisease(Model model, HttpServletRequest request){
+    private String showNotice(Model model, HttpServletRequest request){
 
         //疾病对象合集
-        List<Disease> diseases = diseaseService.getAll();
+        List<Notice> notices = noticeService.getAll();
         //输出集合内容
-        for(Disease disease:diseases){
-            System.out.println(disease.toString());
+        for(Notice notice:notices){
+            System.out.println(notice.toString());
         }
         //获取集合大小
-        System.out.println(diseases.size());
-        model.addAttribute("diseases",diseases);
-        return "information/show";
+        System.out.println(notices.size());
+        model.addAttribute("notices",notices);
+        return "other/show";
     }
 
 }

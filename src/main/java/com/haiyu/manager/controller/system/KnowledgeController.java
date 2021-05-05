@@ -29,11 +29,10 @@ public class KnowledgeController {
 
 
         //健康知识对象合集
-        List<HealthKnowledge> healthKnowledges = new ArrayList<>();
-        healthKnowledges = healthKnowlegeService.getAll();
+        List<HealthKnowledge> healthKnowledges = healthKnowlegeService.getAll();
         //输出集合内容
-        for(HealthKnowledge healthKnowledge1:healthKnowledges){
-            System.out.println(healthKnowledge1.toString());
+        for(HealthKnowledge healthKnowledge:healthKnowledges){
+            System.out.println(healthKnowledge.toString());
         }
         //获取集合大小
         System.out.println(healthKnowledges.size());
