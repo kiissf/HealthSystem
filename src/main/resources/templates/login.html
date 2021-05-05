@@ -4,42 +4,55 @@
 <head th:include="layout :: htmlhead" th:with="title='后台管理'">
 </head>
 <style>
-    body {
+    body{
         background-repeat: no-repeat;
-        background-size: 100% 100%;
+        background-size:100% 100%;
         background-attachment: fixed;
     }
 </style>
-<body>
-<div style="height: 100%;width:100%;">
-    <div style="width: 100%;height: 80px;min-width: 1000px;font-family: '微软雅黑'; ">
-        <div style=" width: 1000px;height: 80px;line-height: 66px;margin: 0 auto;padding-top: 4px;padding-right: 72px;">
-            <li>
-                <img id="logoImage" src="images/logo.gif"
-                     style="width: 70px;height: 70px; vertical-align: middle;">
-                <span style="vertical-align: middle;font-size: 20px;font-family: '微软雅黑';font-weight: bold; margin-left: 8px;">健康管理系统</span>
-            </li>
-        </div>
-    </div>
-    <div class="l_con" style="background: url('images/index_logo.jpg') ;background-size: cover;">
-        <div class="login">
-            <div class="login_l">
-                <li style="float: left; margin-left: 20px;">登录</li>
-                <p><input type="text" placeholder="用户名" id="user"></p>
-                <p><input type="password" placeholder="密码" id="password"></p>
-                <p style="margin-top: 10px">
-                    <input type="checkbox" name="rem" checked="checked" id="rem" style="vertical-align: middle;">
-                    <span style="vertical-align: middle;">记住密码</span>
-                    <a href="javascript:void(0)" class="fog" onclick="findPassword()">忘记密码？</a>
-                </p>
-                <p><input id="login_btn" type="button" value="登录" onclick="login()"></p>
-                <p><span style="vertical-align: center">建议您使用谷歌或360浏览器极速模式</span></p>
+<body background="images\bg.jpg" >
+<div class="layui-container" style="height: 100%">
+
+    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 6%">
+        <legend style="margin-left: 40%"><span style="font-weight: bold;font-size:22px;">海韵后台管理系统</span></legend>
+    </fieldset>
+
+    <div class="layui-row">
+        <div class="layui-col-xs3">
+            <div class="grid-demo grid-demo-bg1">
+                &nbsp;
             </div>
         </div>
-    </div>
-    <div class="foot">
-        <p>版权归李诗凡和李策所有 侵权必究</p>
-        <p>027-59271000 | 59270001</p>
+        <div class="layui-col-xs6">
+            <div class="grid-demo">
+                <form id="useLogin" class="layui-form" action="">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">用户名</label>
+                        <div class="layui-input-inline">
+                            <input id="username" name="username" lay-verify="required" autocomplete="off" class="layui-input" type="tel"/>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">密&nbsp;&nbsp;码</label>
+                        <div class="layui-input-inline">
+                            <input id="password" name="password" lay-verify="required" autocomplete="off" class="layui-input" type="password"/>
+                        </div>
+                    </div>
+                    <div class="layui-form-item" style="margin-top: -20px;">
+                        <label class="layui-form-label"></label>
+                        <div class="layui-inline">
+                            <input type="checkbox" name="rememberMe" lay-skin="primary"  title="记住我"/>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-input-block">
+                            <button class="layui-btn" type="reset">重置</button>
+                            <button id="loginBtn" class="layui-btn layui-btn-primary" lay-submit="" lay-filter="login">登录</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 </div>
 <script type="text/javascript" src="/js/login.js"></script>
