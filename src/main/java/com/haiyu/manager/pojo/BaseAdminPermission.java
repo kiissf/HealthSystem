@@ -9,7 +9,7 @@ public class BaseAdminPermission {
     private Integer id;
 
     /**
-     * 菜单名称
+     * 菜单名
      */
     private String name;
 
