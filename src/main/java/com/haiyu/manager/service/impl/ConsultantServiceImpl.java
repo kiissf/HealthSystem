@@ -1,12 +1,13 @@
 package com.haiyu.manager.service.impl;
 
-import com.haiyu.manager.dao.ConsultantDao;
+import com.haiyu.manager.dao.ConsultantMapper;
 import com.haiyu.manager.pojo.Consultant;
 import com.haiyu.manager.service.ConsultantService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -18,10 +19,13 @@ import java.util.List;
 @Service
 public class ConsultantServiceImpl implements ConsultantService {
     @Autowired
-    private ConsultantDao dao;
+    private ConsultantMapper dao;
     @Override
     public List<Consultant> getAll() {
         List<Consultant> list =  dao.getAll();
+        for(Consultant consultant:list){
+            System.out.println(consultant.toString());
+        }
         return list;
     }
 }

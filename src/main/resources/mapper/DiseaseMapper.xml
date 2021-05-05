@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.haiyu.manager.dao.DiseaseMapper">
+  <resultMap id="DiseaseResultMap" type="com.haiyu.manager.pojo.Disease">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="dis_name" jdbcType="VARCHAR" property="disName" />
+    <result column="dis_description" jdbcType="CLOB" property="disDescription" />
+    <result column="dis_taboo" jdbcType="CLOB" property="disTaboo" />
+    <result column="dis_prevention" jdbcType="CLOB" property="disPrevention" />
+  </resultMap>
+
+
+  <select id="getAll" resultMap="DiseaseResultMap">
+    SELECT *
+    FROM disease
+  </select>
+
+
+
+</mapper>

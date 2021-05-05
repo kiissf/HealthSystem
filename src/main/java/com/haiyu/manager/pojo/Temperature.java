@@ -14,13 +14,13 @@ public class Temperature {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column(name = "heat_am")
-    private String heatAm;
+    private Double heat_am;
     @Column(name = "heat_pm")
-    private String heatPm;
+    private Double heat_pm;
     @Column(name = "date")
     private String date;
     @Column(name = "student_id")
-    private Integer studentId;
+    private Integer student_id;
 
     public Integer getId() {
         return id;
@@ -28,22 +28,6 @@ public class Temperature {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public String getHeatAm() {
-        return heatAm;
-    }
-
-    public void setHeatAm(String heatAm) {
-        this.heatAm = heatAm;
-    }
-
-    public String getHeatPm() {
-        return heatPm;
-    }
-
-    public void setHeatPm(String heatPm) {
-        this.heatPm = heatPm;
     }
 
     public String getDate() {
@@ -54,22 +38,39 @@ public class Temperature {
         this.date = date;
     }
 
-    public Integer getStudentId() {
-        return studentId;
+    public Integer getStudent_id() {
+        return student_id;
     }
 
-    public void setStudentId(Integer studentId) {
-        this.studentId = studentId;
+    public void setStudent_id(Integer student_id) {
+        this.student_id = student_id;
     }
+
+    public Double getHeat_am() {
+        return heat_am;
+    }
+
+    public void setHeat_am(Double heat_am) {
+        this.heat_am = heat_am;
+    }
+
+    public Double getHeat_pm() {
+        return heat_pm;
+    }
+
+    public void setHeat_pm(Double heat_pm) {
+        this.heat_pm = heat_pm;
+    }
+
 
     @Override
     public String toString() {
         return "Temperature{" +
                 "id=" + id +
-                ", heatAm='" + heatAm + '\'' +
-                ", heatPm='" + heatPm + '\'' +
+                ", heat_am=" + heat_am +
+                ", heat_pm=" + heat_pm +
                 ", date='" + date + '\'' +
-                ", studentId=" + studentId +
+                ", student_id=" + student_id +
                 '}';
     }
 }

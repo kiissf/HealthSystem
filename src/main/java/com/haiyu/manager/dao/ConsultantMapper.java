@@ -13,7 +13,7 @@ import java.util.List;
  * @Date 2021-3-03 22:56
  */
 @Repository
-public interface ConsultantDao extends MyMapper<Consultant> {
+public interface ConsultantMapper extends MyMapper<Consultant> {
 
     List<Consultant> getAll();
 

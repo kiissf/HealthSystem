@@ -1,9 +1,12 @@
 package com.haiyu.manager.controller;
 
+import com.haiyu.manager.dao.DiseaseMapper;
+import com.haiyu.manager.service.*;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.Subject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -19,8 +22,26 @@ public class IndexController {
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
+    @Autowired
+    private ConsultantService consultantService;
+    @Autowired
+    private DailyService dailyService;
+    @Autowired
+    private DiseaseService diseaseService;
+    @Autowired
+    private HealthKnowlegeService healthKnowlegeService;
+    @Autowired
+    private NoticeService noticeService;
+
+
+
     @RequestMapping("login")
     public String tologin(){
+        consultantService.getAll();
+        dailyService.getAll();
+        diseaseService.getAll();
+        healthKnowlegeService.getAll();
+        noticeService.getAll();
         logger.info("定向登陆页");
         return "login";
     }
@@ -28,6 +49,7 @@ public class IndexController {
     @RequestMapping("home")
     public String home(){
         logger.info("定向主页");
+
         return "home";
     }
 
@@ -38,5 +60,4 @@ public class IndexController {
         subject.logout(); // shiro底层删除session的会话信息
         return "redirect:login";
     }
-
 }
