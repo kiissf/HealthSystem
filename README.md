@@ -13,3 +13,6 @@ Thymeleaf
 
 ## 代码管理
 Github+Git
+
+## 作者
+李策  李诗凡
