@@ -42,13 +42,14 @@ public class IndexController {
         diseaseService.getAll();
         healthKnowlegeService.getAll();
         noticeService.getAll();
+        noticeService.getAll();
         logger.info("定向登陆页");
         return "login";
     }
 
     @RequestMapping("home")
     public String home(){
-        logger.info("定向主页 ");
+        logger.info("定向主页");
 
         return "home";
     }
