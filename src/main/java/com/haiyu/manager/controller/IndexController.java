@@ -42,7 +42,7 @@ public class IndexController {
         diseaseService.getAll();
         healthKnowlegeService.getAll();
         noticeService.getAll();
-        noticeService.getAll();
+
         logger.info("定向登陆页");
         return "login";
     }
