@@ -2,11 +2,11 @@ package com.haiyu.manager.dao;
 
 
 import com.haiyu.manager.dto.AdminUserDTO;
-import com.haiyu.manager.pojo.BaseAdminUser;
 import com.haiyu.manager.dto.UserSearchDTO;
-import tk.mapper.MyMapper;
+import com.haiyu.manager.pojo.BaseAdminUser;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
+import tk.mapper.MyMapper;
 
 import java.util.List;
 

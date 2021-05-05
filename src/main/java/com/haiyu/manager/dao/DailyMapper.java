@@ -1,6 +1,5 @@
 package com.haiyu.manager.dao;
 
-import com.haiyu.manager.pojo.Consultant;
 import com.haiyu.manager.pojo.Temperature;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;

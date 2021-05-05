@@ -1,8 +1,6 @@
 package com.haiyu.manager.controller.system;
 
-import com.haiyu.manager.pojo.Disease;
 import com.haiyu.manager.pojo.HealthKnowledge;
-import com.haiyu.manager.service.DiseaseService;
 import com.haiyu.manager.service.HealthKnowlegeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

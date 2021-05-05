@@ -1,7 +1,6 @@
 package com.haiyu.manager.dao;
 
 import com.haiyu.manager.pojo.HealthKnowledge;
-import com.haiyu.manager.pojo.Temperature;
 import org.springframework.stereotype.Repository;
 import tk.mapper.MyMapper;
 

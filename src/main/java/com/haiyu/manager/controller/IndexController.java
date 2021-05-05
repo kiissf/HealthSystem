@@ -1,6 +1,5 @@
 package com.haiyu.manager.controller;
 
-import com.haiyu.manager.dao.DiseaseMapper;
 import com.haiyu.manager.service.*;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.Subject;

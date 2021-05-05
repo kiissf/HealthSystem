@@ -1,11 +1,11 @@
 package com.haiyu.manager.service.impl;
+
 import com.haiyu.manager.dao.DiseaseMapper;
 import com.haiyu.manager.pojo.Disease;
 import com.haiyu.manager.service.DiseaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
 import java.util.List;
 
 /**

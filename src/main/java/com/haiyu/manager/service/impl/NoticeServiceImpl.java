@@ -5,7 +5,7 @@ import com.haiyu.manager.pojo.Notice;
 import com.haiyu.manager.service.NoticeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import javax.annotation.Resource;
+
 import java.util.List;
 
 /**
