@@ -95,7 +95,7 @@ public class TimeCreatLocal {
             IndexWriter writer = new IndexWriter(dir,config);
             //插入疾病知识数据
             List<Disease> diseases = diseaseService.getAll();
-            System.out.println("——————————   本次共添加:  " +diseases.size()+"  条疾病知识数据———————————");
+            System.out.println("—————————— 本次共添加:  " +diseases.size()+"  条疾病知识数据———————————");
 
             for(Disease disease:diseases) {
                 Document doc = new Document();
