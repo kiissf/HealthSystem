@@ -21,6 +21,8 @@ public class Consultant {
     private String number;
     @Column(name = "time")
     private String time;
+    @Column(name = "picture")
+    private String picture;
 
     public Integer getId() {
         return id;
@@ -62,6 +64,14 @@ public class Consultant {
         this.time = time;
     }
 
+    public String getPicture() {
+        return picture;
+    }
+
+    public void setPicture(String picture) {
+        this.picture = picture;
+    }
+
     @Override
     public String toString() {
         return "Consultant{" +
@@ -70,6 +80,7 @@ public class Consultant {
                 ", option='" + option + '\'' +
                 ", number='" + number + '\'' +
                 ", time='" + time + '\'' +
+                ", picture='" + picture + '\'' +
                 '}';
     }
 }

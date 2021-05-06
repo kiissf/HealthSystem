@@ -10,6 +10,7 @@
     <result column="option" jdbcType="VARCHAR" property="option" />
     <result column="number" jdbcType="VARCHAR" property="number" />
     <result column="time" jdbcType="VARCHAR" property="time" />
+    <result column="picture" jdbcType="VARCHAR" property="picture" />
   </resultMap>
 
 

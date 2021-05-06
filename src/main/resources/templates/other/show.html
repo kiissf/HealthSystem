@@ -1,62 +1,209 @@
+<!--<th:block th:if="${notices} != null">
+    <table>
+        <tr>
+            <th>序号</th>
+            <th>公告标题</th>
+            <th>公告内容</th>
+            <th>公告书写人</th>
+            <th>发布时间</th>
+        </tr>
+        <tr th:each="notice:${notices}">
+            <td th:text="${notice.getId()}"></td>
+            <td th:text="${notice.getTitle()}"></td>
+            <td th:text="${notice.getContent()}"></td>
+            <td th:text="${notice.getAuthor()}"></td>
+            <td th:text="${notice.getTime()}"></td>
+        </tr>
+    </table>
+</th:block>-->
+
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
-<!--head部分-->
-<head th:include="layout :: htmlhead" th:with="title='海韵后台管理'">
-</head>
-<body class="layui-layout-body">
-<div class="layui-layout layui-layout-admin">
-    <!--头-->
-    <div th:replace="fragments/head :: header"></div>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>jQuery鼠标点击下拉显示信息代码 - 站长素材</title>
 
-    <!--主体区域-->
-    <div class="layui-body">
-        <div class="layui-container">
-            <div class="layui-row">
-                <div class="layui-col-xs9">
-                    <th:block th:if="${notices} != null">
-                        <table>
-                            <tr>
-                                <th>序号</th>
-                                <th>公告标题</th>
-                                <th>公告内容</th>
-                                <th>公告书写人</th>
-                                <th>发布时间</th>
-                            </tr>
-                            <tr th:each="notice:${notices}">
-                                <td th:text="${notice.getId()}"></td>
-                                <td th:text="${notice.getTitle()}"></td>
-                                <td th:text="${notice.getContent()}"></td>
-                                <td th:text="${notice.getAuthor()}"></td>
-                                <td th:text="${notice.getTime()}"></td>
-                            </tr>
-                        </table>
-                    </th:block>
-                    <th:block th:if="${consultants} != null">
-                        <table>
-                            <tr>
-                                <th>序号</th>
-                                <th>医师名字</th>
-                                <th>职位</th>
-                                <th>联系方式</th>
-                                <th>工作时间</th>
-                            </tr>
-                            <tr th:each="consultant:${consultants}">
-                                <td th:text="${consultant.getId()}"></td>
-                                <td th:text="${consultant.getName()}"></td>
-                                <td th:text="${consultant.getOption()}"></td>
-                                <td th:text="${consultant.getNumber()}"></td>
-                                <td th:text="${consultant.getTime()}"></td>
-                            </tr>
-                        </table>
-                    </th:block>
-                </div>
-            </div>
-        </div>
+    <link rel="icon" href="/images/logo.jpg" type="image/x-icon"/>
+    <link rel="shortcut icon" href="/images/logo.jpg" type="image/x-icon"/>
+    <link rel="Bookmark" th:href="@{/images/logo.png}" type="image/x-icon"/>
+    <title>健康管理系统</title>
+    <script type="text/javascript" src="/js/jquery/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="/js/jquery/jquery.serializejson.min.js"></script>
+    <script type="text/javascript" src="/js/formSelects-v4.min.js"></script>
+    <link rel="stylesheet" href="/layui/css/layui.css"></link>
+    <script src="/layui/layui.js"></script>
+    <script src="/js/checkParam.js"></script>
+    <script src="/js/common.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/css/style.css"/>
+
+    <script type="text/javascript" src="/js/jquery/jquery-1.9.1.min.js"></script>
+
+    <style>
+        .wrap {
+            width: 1120px;
+            margin-left: 220px
+        }
+
+        .solutions {
+            width: 1120px;
+            overflow: hidden
+        }
+
+        .solutions ul {
+            width: 1140px
+        }
+
+        .solutions li {
+            height: 300px;
+            background: #fff;
+            width: 263px;
+            border: 1px solid #e5e5e5;
+            border-bottom: 5px solid #efefef;
+            float: left;
+            margin-right: 20px;
+            position: relative;
+        }
+
+        .solutit {
+            display: block;
+            width: 100%;
+        }
+
+        .solutit img {
+            margin: 30px auto;
+            text-align: center;
+            display: block;
+        }
+
+        .solutit h4 {
+            color: #333;
+            font-size: 16px;
+            text-align: center;
+            font-weight: bold;
+            line-height: 30px;
+        }
+
+        .solutit p {
+            color: #72ac2d;
+            line-height: 20px;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .solutit a {
+            line-height: 30px;
+            height: 30px;
+            width: 100px;
+            background: #72ac2d;
+            color: #fff;
+            font-size: 14px;
+            font-weight: bold;
+            text-align: center;
+            display: block;
+            margin: 20px auto 0;
+            border-radius: 5px;
+        }
+
+        .solutit:hover a {
+            background: #ec8000;
+        }
+
+        .solutit2 {
+            width: 223px;
+            padding: 0 20px;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            overflow: hidden;
+            height: 0px;
+            background: #fff;
+            z-index: 99;
+            display: block;
+            border-bottom: 5px solid #72ac2d;
+        }
+
+        .solutit2 h4 {
+            color: #333;
+            font-weight: bold;
+            font-size: 16px;
+            line-height: 16px;
+            margin-bottom: 10px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .solutit2 h5 {
+            text-align: center;
+            color: #72ac2d;
+            display: block;
+        }
+
+        .solutit2 span {
+            display: block;
+            background: #bbbbbb;
+            height: 2px;
+            width: 50px;
+            margin: 10px auto;
+        }
+
+        .solutit2 p {
+            line-height: 24px;
+            color: #666666;
+            height: 144px;
+            display: block;
+            overflow: hidden;
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+<div th:replace="fragments/head :: header"></div>
+
+<br>
+<div class='wrap'>
+    <div class='solutions' id="solutions">
+        <ul>
+            <th:block th:each="consultant:${consultants}">
+                <li>
+                    <div class="solutit">
+                        <img th:src="${consultant.getPicture()}">
+                        <h4 th:text="${consultant.getName()}">姓名</h4>
+                        <p th:text="${consultant.getOption()}">职位</p>
+                        <a class="aaa" href="javascript:void(0)">了解详情</a>
+                    </div>
+                    <div class="solutit2">
+                        <h4 th:text="${consultant.getName()}">姓名</h4>
+                        <h5 th:text="${consultant.getOption()}">职位</h5>
+                        <span></span>
+                        <p style="margin: 0 auto">电话 : [[${consultant.getNumber()}]]  <br> 工作时间 :  [[${consultant.getTime()}]]</p>
+                    </div>
+                </li>
+            </th:block>
+        </ul>
     </div>
-    <script type="text/javascript" src="/js/error.js"></script>
-    <!--底部-->
-    <div th:replace="fragments/footer :: footer"></div>
+</div>
+
+
+<script type="text/javascript">
+    $(function () {
+        $('#solutions li').click(function () {
+            $('#solutions .solutit2').stop().animate({
+                height: '0'
+
+            }, 600);
+            $(this).find('.solutit2').stop().animate({
+                height: '300'
+
+            }, 600);
+        });
+
+    });
+</script>
 </div>
 </body>
 </html>
