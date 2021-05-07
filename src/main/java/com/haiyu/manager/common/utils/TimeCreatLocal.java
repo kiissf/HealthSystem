@@ -59,7 +59,7 @@ public class TimeCreatLocal {
             Directory dir = FSDirectory.open(file);
             //索引写出器配置
             IndexWriterConfig config = new IndexWriterConfig(Version.LATEST,analyzer);
-            config.setOpenMode(IndexWriterConfig.OpenMode.CREATE_OR_APPEND);
+            config.setOpenMode(IndexWriterConfig.OpenMode.CREATE);
             //索引写出器
             IndexWriter writer = new IndexWriter(dir,config);
             //插入健康知识数据
@@ -90,7 +90,7 @@ public class TimeCreatLocal {
             Directory dir = FSDirectory.open(file2);
             //索引写出器配置
             IndexWriterConfig config = new IndexWriterConfig(Version.LATEST,analyzer);
-            config.setOpenMode(IndexWriterConfig.OpenMode.CREATE_OR_APPEND);
+            config.setOpenMode(IndexWriterConfig.OpenMode.CREATE);
             //索引写出器
             IndexWriter writer = new IndexWriter(dir,config);
             //插入疾病知识数据

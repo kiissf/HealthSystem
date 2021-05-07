@@ -39,7 +39,7 @@ public class NoticeController {
         //获取集合大小
         System.out.println(notices.size());
         model.addAttribute("notices",notices);
-        return "other/show";
+        return "information/show";
     }
 
 }
