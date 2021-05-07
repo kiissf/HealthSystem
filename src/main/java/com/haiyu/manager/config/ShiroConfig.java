@@ -88,12 +88,14 @@ public class ShiroConfig {
         filterMap.put("/layout", "anon");
         filterMap.put("/home", "anon");
         filterMap.put("/user/login", "anon");
+        filterMap.put("/pdf/*/**", "anon");
+        filterMap.put("/pdf/*", "anon");
 
         // <!-- authc:所有url都必须认证通过才可以访问; anon:所有url都都可以匿名访问【放行】-->
-        filterMap.put("/**", "kickout,authc");
-        filterMap.put("/*/*", "authc");
-        filterMap.put("/*/*/*", "authc");
-        filterMap.put("/*/*/*/**", "authc");
+        filterMap.put("/**", "kickout,anon");
+        filterMap.put("/*/*", "anon");
+        filterMap.put("/*/*/*", "anon");
+        filterMap.put("/*/*/*/**", "anon");
 
         // 添加 shiro 过滤器
         bean.setFilterChainDefinitionMap(filterMap);
