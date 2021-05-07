@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<!--head部分-->
+<head th:include="layout :: htmlhead" th:with="title='海韵后台管理'">
+</head>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+    <!--头-->
+    <div th:replace="fragments/head :: header"></div>
+
+    <!--主体区域-->
+    <div class="layui-body">
+        <div class="layui-container">
+            <div class="layui-row">
+                <div class="layui-col-xs9">
+
+                    <form name="form1" action="/disease/decide">
+                        <select name="select">
+                            <option>疾病搜索</option>
+                            <option>知识信息搜索</option>
+                        </select>
+                        <th:block th:if="${#strings.isEmpty(key)}">
+                            <input name="key" type="text" placeholder="请输入关键字"/>
+                        </th:block>
+                        <th:block th:if="${not #strings.isEmpty(key)}">
+                            <input th:value="${key}" name="key" type="text"
+                                   placeholder="请输入关键字"/>
+                        </th:block>
+                        <input type="submit"/>
+                    </form>
+
+                    <th:block th:if="${diseases} != null">
+                        <table>
+                            <tr>
+                                <th>序号</th>
+                                <th>病毒名称</th>
+                                <th>描述</th>
+                                <th>禁忌</th>
+                                <th>预防</th>
+                            </tr>
+                            <tr th:each="disease:${diseases}">
+                                <td th:text="${disease.getId()}"></td>
+                                <td th:text="${disease.getDisName()}"></td>
+                                <td th:text="${disease.getDisDescription()}"></td>
+                                <td th:text="${disease.getDisTaboo()}"></td>
+                                <td th:text="${disease.getDisPrevention()}"></td>
+                            </tr>
+                        </table>
+                    </th:block>
+                    <th:block th:if="${healths} != null">
+
+                        <table>
+                            <tr>
+                                <th>序号</th>
+                                <th>标题</th>
+                                <th>内容</th>
+                            </tr>
+                            <tr th:each="health:${healths}">
+                                <td th:text="${health.getId()}"></td>
+                                <td th:text="${health.getTitle()}"></td>
+                                <td th:text="${health.getContent()}"></td>
+                            </tr>
+                        </table>
+
+                    </th:block>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--    <script type="text/javascript" src="/js/error.js"></script>-->
+    <!--底部-->
+    <div th:replace="fragments/footer :: footer"></div>
+</div>
+</body>
+</html>
