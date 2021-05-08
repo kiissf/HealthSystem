@@ -9,18 +9,22 @@
 
 <div style="height: 100%;width: 100%;">
     <div id="div_title" style="width: 1000px;height: 30px;margin: 0 auto;">
-        <p id="title" style="text-align: center;font-weight: bold;color: #0C0C0C; font-size: 18px; ">
-            关于2020－2021学年第一学期大学生门诊费用报销的通知</p>
+        <p id="title" style="text-align: center;font-weight: bold;color: #0C0C0C; font-size: 18px; "
+           th:text="${session.sessNotice.getTitle()}"></p>
+
     </div>
     <div id="div_author" style="width: 1000px;height: 20px;margin: 0 auto; font-size: 12px;margin-top: 20px ">
-        <span id="author" style="text-align: center; float: right;padding-right: 100px;">辅导员：孙老师</span>
+        <span id="author" th:text="${session.sessNotice.getAuthor()}"
+              style="text-align: center; float: right;padding-right: 70px;"></span>
     </div>
-    <div id="div_content" style="width: 1000px;height: 500px;margin: 0 auto; background-color: #00FFFF;margin-top: 30px;">
-        <p id="content" style="text-indent: 2em;">
-            各位同学，依据省里统一安排，现对于所有离石人员进行倒查倒追，所以请所有同学们于6号、7号两天到当地医院做核酸，拿到核酸结果，拍照发给包联人（文件以个人名字命名），各班班长汇总并填写附件，于8日上午十点之前发给我。另外，在石家庄市区、藁城、正定等疫区内的同学，可以等待社区统一做核酸，晚些提交核酸检测结果，并在表格上备注：中高风险地区，等待社区统一做核酸。同学们，打赢疫情防控阻击战关乎我们每个人的切</p>
+    <div id="div_content"
+         style="width: 1000px;height: 300px;margin: 0 auto;margin-top: 30px;">
+        <p id="content" th:text="${session.sessNotice.getContent()}" style="text-indent: 2em;">
+        </p>
     </div>
     <div id="div_time" style="width: 1000px;height: 20px;margin: 0 auto; font-size: 12px;margin-top: 20px ">
-        <span id="time" style="text-align: center; float: right;padding-right: 50px;">时间：2021-2-5</span>
+        <span id="time" th:text="${session.sessNotice.getTime()}"
+              style="text-align: center; float: right;padding-right: 70px;"></span>
     </div>
 </div>
 

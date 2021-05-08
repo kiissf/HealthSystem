@@ -31,6 +31,11 @@ public class NoticeController {
         return "information/showinfo";
     }
 
+    @RequestMapping("/noticeshow")
+    private String noticeShow() {
+        return "information/noticedetail";
+    }
+
     //获取疾病信息
     @RequestMapping("/show")
     @ResponseBody

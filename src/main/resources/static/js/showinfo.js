@@ -78,7 +78,7 @@ function lookInfo(data) {
                     ,
                     closeBtn: 1
                     ,
-                    content: '/pdf/localpdf/example.html'
+                    content: '/notice/noticeshow'
                     ,
                     success: function (layero) {
 
