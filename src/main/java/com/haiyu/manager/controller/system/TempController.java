@@ -1,9 +1,6 @@
 package com.haiyu.manager.controller.system;
 
-import com.haiyu.manager.pojo.BaseAdminUser;
-import com.haiyu.manager.pojo.Disease;
 import com.haiyu.manager.pojo.Temperature;
-import com.haiyu.manager.service.ConsultantService;
 import com.haiyu.manager.service.TemperatureService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

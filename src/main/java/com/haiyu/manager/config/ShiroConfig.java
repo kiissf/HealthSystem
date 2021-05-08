@@ -79,6 +79,7 @@ public class ShiroConfig {
         filterMap.put("/js/*", "anon");
         filterMap.put("/js/*/*", "anon");
         filterMap.put("/js/*/*/*", "anon");
+        filterMap.put("/js/upload/*", "anon");
         filterMap.put("/images/*/**", "anon");
         filterMap.put("/layui/*", "anon");
         filterMap.put("/layui/*/**", "anon");
@@ -91,6 +92,8 @@ public class ShiroConfig {
         filterMap.put("/pdf/*/**", "anon");
         filterMap.put("/pdf/*", "anon");
         filterMap.put("/information/*", "anon");
+
+
 
         // <!-- authc:所有url都必须认证通过才可以访问; anon:所有url都都可以匿名访问【放行】-->
         filterMap.put("/**", "kickout,anon");
