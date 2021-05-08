@@ -8,6 +8,7 @@ import javax.persistence.*;
  * @Author 李策
  * @Date 2021-3-05 18:05
  */
+
 @Table(name = "temperature")
 public class Temperature {
     @Id
