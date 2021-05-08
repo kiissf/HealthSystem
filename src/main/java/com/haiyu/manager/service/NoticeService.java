@@ -11,4 +11,6 @@ import java.util.List;
  */
 public interface NoticeService {
     List<Notice> getAll();
+
+    Notice getById(int id);
 }

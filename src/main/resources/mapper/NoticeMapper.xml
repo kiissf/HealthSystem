@@ -18,6 +18,11 @@
     FROM notice
   </select>
 
+  <select id="getById" resultMap="NoticeResultMap">
+    SELECT *
+    FROM notice
+    where id=#{id}
+  </select>
 
 
 </mapper>
