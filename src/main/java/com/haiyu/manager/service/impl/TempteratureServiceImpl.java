@@ -29,4 +29,31 @@ public class TempteratureServiceImpl implements TemperatureService {
         }
         return list;
     }
+
+    @Override
+    public boolean insertTemperature(Temperature temperature) {
+        boolean result = temperatureMapper.insertTemperature(temperature);
+        System.out.println("插入结果："+ result);
+        return result;
+    }
+
+    @Override
+    public List<Temperature> findWeekTemp(String monday,String sunday) {
+        List<Temperature> list =  temperatureMapper.findWeekTemp(monday,sunday);
+        for(Temperature temperature:list){
+            System.out.println(temperature.toString());
+        }
+        return list;
+    }
+
+    @Override
+    public List<Temperature> findMonthTemp(String date) {
+        List<Temperature> list =  temperatureMapper.findMonthTemp(date);
+        for(Temperature temperature:list){
+            System.out.println(temperature.toString());
+        }
+        return list;
+    }
+
+
 }

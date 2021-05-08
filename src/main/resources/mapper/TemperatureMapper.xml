@@ -18,6 +18,22 @@
     FROM temperature
   </select>
 
+  <insert id="insertTemperature" parameterType="com.haiyu.manager.pojo.Temperature">
+    insert into temperature(heat_am,heat_pm,date,student_id) values(#{heat_am},#{heat_pm},#{date},#{student_id})
+  </insert>
+
+  <select id="findWeekTemp" resultMap="TempResultMap">
+    SELECT *
+    FROM temperature
+    WHERE date between #{monday} and #{sunday}
+  </select>
+
+  <select id="findMonthTemp" resultMap="TempResultMap">
+    SELECT *
+    FROM temperature
+    WHERE date LIKE #{date} '%'
+  </select>
+
 
 
 </mapper>

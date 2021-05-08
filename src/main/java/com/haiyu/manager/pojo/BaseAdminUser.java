@@ -48,6 +48,12 @@ public class BaseAdminUser {
     private Integer userStatus;
 
     /**
+     * 状态（0：无效；1：有效）
+     */
+    @Column(name = "stu_id")
+    private Integer stuId;
+
+    /**
      * 获取ID
      *
      * @return id - ID
@@ -173,6 +179,15 @@ public class BaseAdminUser {
         this.userStatus = userStatus;
     }
 
+
+    public Integer getStuId() {
+        return stuId;
+    }
+
+    public void setStuId(Integer stuId) {
+        this.stuId = stuId;
+    }
+
     @Override
     public String toString() {
         return "BaseAdminUser{" +
@@ -183,6 +198,7 @@ public class BaseAdminUser {
                 ", userPhone='" + userPhone + '\'' +
                 ", regTime='" + regTime + '\'' +
                 ", userStatus=" + userStatus +
+                ", stuId=" + stuId +
                 '}';
     }
 }

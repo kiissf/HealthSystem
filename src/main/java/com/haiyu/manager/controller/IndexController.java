@@ -36,12 +36,6 @@ public class IndexController {
 
     @RequestMapping("login")
     public String tologin(){
-        consultantService.getAll();
-        dailyService.getAll();
-        diseaseService.getAll();
-        healthKnowlegeService.getAll();
-        noticeService.getAll();
-
         logger.info("定向登陆页");
         return "login";
     }

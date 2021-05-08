@@ -77,7 +77,9 @@ public class UserController {
             // 登录成功
             BaseAdminUser user = (BaseAdminUser) subject.getPrincipal();
 
+            System.out.println("当前用户的studentid为： "+user.getStuId());
             session.setAttribute("user", user.getSysUserName());
+            session.setAttribute("stuId", user.getStuId());
             data.put("code",1);
             data.put("url","/home");
             //data.put("message","登陆成功");
