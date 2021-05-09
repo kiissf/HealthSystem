@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>详细</title>
+
+</head>
+<body>
+
+<div style="height: 100%;width: 100%;">
+    <div id="div_title" style="width: 1000px;height: 30px;margin: 0 auto;">
+        <p id="title" th:text="${session.sessDisease.getDisName()}"
+           style="text-align: center;font-weight: bold;color: #0C0C0C; font-size: 18px; "></p>
+    </div>
+    <div id="div_author"
+         style="width: 1000px;height: 100px;margin: 0 auto; font-size: 12px;margin-top: 20px; ">
+        <span id="author" th:text="${session.sessDisease.getDisDescription()}" style="text-align: center;"></span>
+    </div>
+    <div id="div_content"
+         style="width: 1000px;height: 150px;margin: 0 auto;margin-top: 30px;">
+        <p id="content" th:text="${session.sessDisease.getDisPrevention()}" style="text-indent: 2em;"></p>
+    </div>
+    <div id="div_time"
+         style="width: 1000px;height: 20px;margin: 0 auto; font-size: 12px;margin-top: 20px; ">
+        <span id="time" th:text="${session.sessDisease.getDisTaboo()}" style="text-align: center; "></span>
+
+    </div>
+</div>
+
+<script>
+
+</script>
+</body>
+</html>

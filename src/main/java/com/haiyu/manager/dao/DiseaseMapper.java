@@ -17,4 +17,5 @@ public interface DiseaseMapper extends MyMapper<Disease> {
 
     List<Disease> getAll();
 
+    Disease getById(int id);
 }

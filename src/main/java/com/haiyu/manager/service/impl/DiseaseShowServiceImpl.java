@@ -15,15 +15,22 @@ import java.util.List;
  * @Date 2021-3-01 21:59
  */
 @Service
-public class DiseaseShowServiceImpl  implements DiseaseService {
+public class DiseaseShowServiceImpl implements DiseaseService {
     @Autowired
     private DiseaseMapper diseaseMapper;
+
     @Override
     public List<Disease> getAll() {
-        List<Disease> list =  diseaseMapper.getAll();
-        for(Disease disease:list){
+        List<Disease> list = diseaseMapper.getAll();
+        for (Disease disease : list) {
             System.out.println(disease.toString());
         }
         return list;
+    }
+
+    @Override
+    public Disease getById(int id) {
+        Disease disease = diseaseMapper.getById(id);
+        return disease;
     }
 }
