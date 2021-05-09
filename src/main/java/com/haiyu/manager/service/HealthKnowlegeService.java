@@ -11,4 +11,6 @@ import java.util.List;
  */
 public interface HealthKnowlegeService {
     List<HealthKnowledge> getAll();
+
+    HealthKnowledge getById(int id);
 }

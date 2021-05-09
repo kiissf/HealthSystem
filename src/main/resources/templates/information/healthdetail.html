@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>详细</title>
+
+</head>
+<body>
+
+<div style="height: 100%;width: 100%;">
+    <div id="div_title" style="width: 1000px;height: 30px;margin: 0 auto;">
+        <p id="title" style="text-align: center;font-weight: bold;color: #0C0C0C; font-size: 18px; "
+           th:text="${session.sessHealth.getTitle()}"></p>
+
+    </div>
+    <div id="div_author"
+         style="width: 1000px;height: 20px;margin: 0 auto; font-size: 12px;margin-top: 20px;display: none ">
+        <span id="author"
+              style="text-align: center; float: right;padding-right: 70px;"></span>
+    </div>
+    <div id="div_content"
+         style="width: 1000px;height: 300px;margin: 0 auto;margin-top: 30px;">
+        <p id="content" th:text="${session.sessHealth.getContent()}" style="text-indent: 2em;">
+        </p>
+    </div>
+    <div id="div_time"
+         style="width: 1000px;height: 20px;margin: 0 auto; font-size: 12px;margin-top: 20px;display: none ">
+        <span id="time"
+              style="text-align: center; float: right;padding-right: 70px;"></span>
+    </div>
+</div>
+
+<script>
+
+</script>
+</body>
+</html>

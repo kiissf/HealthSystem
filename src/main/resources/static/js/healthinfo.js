@@ -1,5 +1,6 @@
 /*
-* 信息显示的js
+* 显示健康信息的js
+*
 * */
 
 var form;
@@ -8,10 +9,9 @@ $(function () {
     layui.use('table', function () {
         var table = layui.table;
         form = layui.form;
-
         tableIns = table.render({
             elem: '#roleList',
-            url: '/notice/show',
+            url: '/health/show',
             method: 'get', //默认：get请求
             cellMinWidth: 80,
             page: true,
@@ -30,8 +30,6 @@ $(function () {
                 {type: 'numbers'}
                 , {field: 'title', title: '标题', align: 'center'}
                 , {field: 'content', title: '内容', align: 'center'}
-                , {field: 'author', title: '作者', align: 'center'}
-                , {field: 'time', title: '时间', align: 'center'}
                 , {fixed: 'right', title: '查看详情', align: 'center', toolbar: '#optBar'}
             ]]
 
@@ -54,7 +52,7 @@ function lookInfo(data) {
     var NId = data.id;
     $.ajax({
         type: "get",
-        url: "/notice/showNotice?id=" + NId,
+        url: "/health/showHealth?id=" + NId,
         success: function (data) {
             if (data == 1) {
                 layer.open({
@@ -78,7 +76,7 @@ function lookInfo(data) {
                     ,
                     closeBtn: 1
                     ,
-                    content: '/notice/noticeshow'
+                    content: '/health/healthshow'
                     ,
                     success: function (layero) {
 

@@ -1,4 +1,5 @@
 package com.haiyu.manager.service.impl;
+
 import com.haiyu.manager.dao.HealthKnowledgeMapper;
 import com.haiyu.manager.pojo.HealthKnowledge;
 import com.haiyu.manager.service.HealthKnowlegeService;
@@ -17,12 +18,19 @@ import java.util.List;
 public class HealthKnowlegeServiceImpl implements HealthKnowlegeService {
     @Autowired
     private HealthKnowledgeMapper konwledgeMapper;
+
     @Override
     public List<HealthKnowledge> getAll() {
-        List<HealthKnowledge> list =  konwledgeMapper.getAll();
-        for(HealthKnowledge healthKnowledge:list){
+        List<HealthKnowledge> list = konwledgeMapper.getAll();
+        for (HealthKnowledge healthKnowledge : list) {
             System.out.println(healthKnowledge.toString());
         }
         return list;
+    }
+
+    @Override
+    public HealthKnowledge getById(int id) {
+        HealthKnowledge data = konwledgeMapper.getById(id);
+        return data;
     }
 }

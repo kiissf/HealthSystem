@@ -16,4 +16,6 @@ import java.util.List;
 public interface HealthKnowledgeMapper extends MyMapper<HealthKnowledge> {
 
     List<HealthKnowledge> getAll();
+
+    HealthKnowledge getById(int id);
 }
