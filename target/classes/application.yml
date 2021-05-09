@@ -7,9 +7,9 @@ spring:
       name: haiyu
   datasource:
     druid:
-      url: jdbc:mysql://localhost:3306/search?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8
+      url: jdbc:mysql://39.100.241.154:3306/heathy_system?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8
       username: root
-      password: 123
+      password: 123456
       initial-size: 1
       min-idle: 1
       max-active: 20

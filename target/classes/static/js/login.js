@@ -1,6 +1,17 @@
 /**
  * 登录
  */
+
+// function inputNull(from) {
+//     var user = document.getElementById("username");
+//     var password = document.getElementById("password");
+//     if (user==""||password==""){
+//         alert("请检查输入");
+//         form.elements[1].focus();
+//         return false;
+//     }
+// }
+
 $(function(){
      layui.use(['form' ,'layer'], function() {
          var form = layui.form;

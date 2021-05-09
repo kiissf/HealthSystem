@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.haiyu.manager.dao.CasesMapper">
+  <resultMap id="CasesResultMap" type="com.haiyu.manager.pojo.Cases">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="picture" jdbcType="VARCHAR" property="picture" />
+    <result column="student_id" jdbcType="INTEGER" property="student_id" />
+  </resultMap>
+
+
+  <select id="getAll" resultMap="CasesResultMap">
+    SELECT *
+    FROM cases
+  </select>
+
+  <select id="getAllByStuId" resultMap="CasesResultMap">
+    SELECT *
+    FROM cases
+    WHERE student_id = #{stuId}
+  </select>
+
+  <insert id="insertCases" parameterType="com.haiyu.manager.pojo.Cases">
+    insert into cases(picture,student_id) values(#{picture},#{student_id})
+  </insert>
+
+
+
+</mapper>

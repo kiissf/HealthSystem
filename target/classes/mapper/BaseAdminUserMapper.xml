@@ -12,10 +12,11 @@
     <result column="user_phone" jdbcType="VARCHAR" property="userPhone" />
     <result column="user_status" jdbcType="INTEGER" property="userStatus" />
     <result column="reg_time" jdbcType="VARCHAR" property="regTime" />
+    <result column="stu_id" jdbcType="INTEGER" property="stuId" />
   </resultMap>
 
   <sql id="baseColumn">
-    id,sys_user_name,sys_user_pwd,user_status,reg_time,user_phone,role_id
+    id,sys_user_name,sys_user_pwd,user_status,reg_time,user_phone,role_id,stu_id
   </sql>
 
 
