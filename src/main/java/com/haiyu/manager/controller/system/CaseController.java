@@ -16,8 +16,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
-import java.util.UUID;
 
 /**
  * @ClassName CaseController
@@ -67,6 +70,13 @@ public class CaseController {
             Cases cases = new Cases();
             cases.setStudent_id(id);
             cases.setPicture("/case/"+realFileName);
+            //获取时间
+            Date date=new Date();
+            DateFormat format=new SimpleDateFormat("yyyy-MM-dd");
+            System.out.println(format.format(date));
+            String casesDate = format.format(date);
+            cases.setDate(casesDate);
+            //数据库插入数据
             casesService.insertCases(cases);
 
 
@@ -80,7 +90,7 @@ public class CaseController {
 
     //初始化页面
     @RequestMapping("/record")
-    private String caseRecord(Model model, HttpServletRequest request,HttpSession session) {
+    private String caseRecord(HttpServletRequest request,HttpSession session) {
         //获取studentId
         Integer id = (Integer) session.getAttribute("stuId");
         List<Cases> casesList = casesService.getAllByStuId(id);
@@ -89,9 +99,58 @@ public class CaseController {
         return "/case/record";
     }
 
+
+    @RequestMapping(value = "/pass")
+    private String casePass(HttpServletRequest request,HttpSession session) {
+        //获取studentId
+        Integer id = Integer.valueOf(request.getParameter("id"));
+        System.out.println(id+"删除的顺序");
+        List<Cases> casesList = (List<Cases>) session.getAttribute("casesList");
+        Cases cases = new Cases();
+        cases.setId(id);
+        casesList.remove(cases);
+/*        Iterator<Cases> iterator = casesList.iterator();
+
+        int count = 0;
+        while (iterator.hasNext()) {
+            Cases cases = iterator.next();
+            if (index==count) {
+                iterator.remove();//使用迭代器的删除方法删除
+                break;
+            }
+            count++;
+        }*/
+        if(casesList.size()!=0){
+            session.setAttribute("casesList",casesList);
+        }
+        System.out.println(casesList.size()+"大小");
+//        JSONObject result = new JSONObject();
+//        result.put("code", 0);
+//        return result.toJSONString();
+        return "redirect:/case/result";
+
+    }
+
     //初始化页面
     @RequestMapping("/check")
-    private String caseCheck(Model model, HttpServletRequest request) {
+    private String caseCheck(HttpServletRequest request,HttpSession session) {
+        //获取managerId
+        Integer id = (Integer) session.getAttribute("stuId");
+        List<Cases> casesList = casesService.getAllByManId(id);
+        request.setAttribute("casesList",casesList);
+        session.setAttribute("casesList",casesList);
+        return "/case/check";
+    }
+
+    @RequestMapping("/result")
+    private String caseResult(HttpServletRequest request,HttpSession session) {
+        //获取managerId
+        List<Cases> casesList = null;
+        if(session.getAttribute("casesList")!=null){
+            casesList = (List<Cases>) session.getAttribute("casesList");
+        }
+        request.setAttribute("casesList",casesList);
+        session.setAttribute("casesList",casesList);
         return "/case/check";
     }
 

@@ -14,20 +14,29 @@
         <div class="layui-container">
             <div class="layui-row">
                 <div class="layui-col-xs9">
-                    <p>我是病例记录</p>
                     <th:block th:if="${casesList} != null">
-                        <table>
-                            <tr>
-                                <th>id</th>
-                                <th>src</th>
-                                <th>studentid</th>
+                        <table border="1" id="dataTable"  style="border-collapse:collapse;border-spacing:0; border:1px  solid  #FFFFFF;" >
+                            <tr style="background:#50aca2;color: #fff;border-bottom-width: 0;  text-align: center; height: 2.2rem;">
+                                <th>我的病例</th>
+                                <th>提交日期</th>
+                                <th>处理情况</th>
                             </tr>
-                            <tr th:each="cases:${casesList}">
-                                <td th:text="${cases.getId()}"></td>
+                            <tr  style="background: #e5efeb; text-align: center;height: 2.2rem;" th:each="cases:${casesList}">
                                 <td>
-                                    <img th:src="${cases.getPicture()}">
+                                    <img style="width: 200px;height: 150px;" th:src="${cases.getPicture()}">
                                 </td>
-                                <td th:text="${cases.getStudent_id()}"></td>
+                                <td style="margin:0 auto" th:text="${cases.getDate()}"></td>
+                                <th:block th:if="${cases.getFlag() == 0 }">
+                                    <td style="margin:0 auto"><font color="#FF0000">未处理</font></td>
+                                </th:block>
+                                <th:block th:if="${cases.getFlag() == 1 }">
+                                    <td style="margin:0 auto"><font color="#009900">已通过</font></td>
+                                </th:block>
+                                <th:block th:if="${cases.getFlag() == 2 }">
+                                    <td style="margin:0 auto"><font color="#8A8A8A">已完成</font></td>
+                                </th:block>
+
+
                             </tr>
                         </table>
                     </th:block>

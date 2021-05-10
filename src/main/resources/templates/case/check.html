@@ -2,7 +2,49 @@
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
 <!--head部分-->
-<head th:include="layout :: htmlhead" th:with="title='海韵后台管理'">
+<head>
+    <meta charset="utf-8"></meta>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"></meta>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+    <meta name="renderer" content="webkit"/>
+    <link rel="icon" href="/images/logo.jpg" type="image/x-icon"/>
+    <link rel="shortcut icon" href="/images/logo.jpg" type="image/x-icon"/>
+    <link rel="Bookmark" th:href="@{/images/logo.png}" type="image/x-icon"/>
+    <title>健康管理系统</title>
+    <script type="text/javascript" src="/js/jquery/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="/js/jquery/jquery.serializejson.min.js"></script>
+    <script type="text/javascript" src="/js/formSelects-v4.min.js"></script>
+    <link rel="stylesheet" href="/layui/css/layui.css"></link>
+    <script src="/layui/layui.js"></script>
+    <script src="/js/checkParam.js"></script>
+    <script src="/js/common.js"></script>
+    <style>
+        .enjoy-css {
+            margin-left: 10px;
+            margin-right: 10px;
+            display: inline-block;
+            -moz-box-sizing: content-box;
+            -webkit-box-sizing: content-box;
+            box-sizing: content-box;
+            cursor: pointer;
+            padding: 10px 20px;
+            border: 1px solid #018dc4;
+            -webkit-border-radius: 3px;
+            border-radius: 3px;
+            font: normal 16px/normal Impact, Charcoal, sans-serif;
+            color: rgba(255,255,255,0.9);
+            -o-text-overflow: clip;
+            text-overflow: clip;
+            background: #0199d9;
+            -webkit-box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) ;
+            box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) ;
+            text-shadow: -1px -1px 0 rgba(15,73,168,0.66) ;
+            -webkit-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+            -moz-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+            -o-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+            transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+        }
+    </style>
 </head>
 <body class="layui-layout-body">
 <div class="layui-layout layui-layout-admin">
@@ -14,12 +56,56 @@
         <div class="layui-container">
             <div class="layui-row">
                 <div class="layui-col-xs9">
-                    <p>我是病例审查</p>
+                    <th:block th:if="${casesList} != null">
+                        <table border="1" id="dataTable"  style="border-collapse:collapse;border-spacing:0; border:1px  solid  #FFFFFF;" >
+                            <tr style="background:#50aca2;color: #fff;border-bottom-width: 0;  text-align: center; height: 2.2rem;">
+                                <th>学生的病例</th>
+                                <th>提交日期</th>
+                                <th>处理情况</th>
+                                <th>处理</th>
+                            </tr>
+                            <tr  style="background: #e5efeb; text-align: center;height: 2.2rem;" th:each="cases:${casesList}">
+                                <td>
+                                    <img style="width: 200px;height: 150px;margin-right: 20px;margin-left: 20px;margin-top: 10px;margin-bottom: 10px;" th:src="${cases.getPicture()}">
+                                </td>
+                                <td style="padding: 20px;font-size: 20px;" th:text="${cases.getDate()}"></td>
+                                <th:block th:if="${cases.getFlag() == 0 }">
+                                    <td style="padding: 20px;"><font size="4" color="#FF0000">未处理</font></td>
+                                </th:block>
+                                <th:block th:if="${cases.getFlag() == 1 }">
+                                    <td style="padding: 20px;"><font size="3"  color="#009900">已通过</font></td>
+                                </th:block>
+                                <th:block th:if="${cases.getFlag() == 2 }">
+                                    <td style="padding:20px;"><font size="3" color="#8A8A8A">已完成</font></td>
+                                </th:block>
+                                <td>
+                                    <a class="enjoy-css" th:href="@{/case/pass(id=${cases.getId()})}">通过</a>
+                                </td>
+                            </tr>
+                        </table>
+                    </th:block>
                 </div>
             </div>
         </div>
     </div>
     <script type="text/javascript" src="/js/error.js"></script>
+<!--    <script>
+        var btnArray = document.getElementsByClassName('enjoy-css');
+        for (var i = 0; i < btnArray.length; i++) {
+            btnArray[i].i = i;
+            btnArray[i].onclick = function () {
+                $.ajax({
+                    type: "GET",
+                    url: "/case/pass",
+                    data: {index:this.i},
+                    dataType: "json",
+                    success: function(data){
+
+                    }
+                });
+            };
+        }
+    </script>-->
     <!--底部-->
     <div th:replace="fragments/footer :: footer"></div>
 </div>

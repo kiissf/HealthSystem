@@ -8,6 +8,8 @@
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="picture" jdbcType="VARCHAR" property="picture" />
     <result column="student_id" jdbcType="INTEGER" property="student_id" />
+    <result column="date" jdbcType="DATE" property="date" />
+    <result column="flag" jdbcType="INTEGER" property="flag" />
   </resultMap>
 
 
@@ -23,9 +25,17 @@
   </select>
 
   <insert id="insertCases" parameterType="com.haiyu.manager.pojo.Cases">
-    insert into cases(picture,student_id) values(#{picture},#{student_id})
+    insert into cases(picture,student_id,date) values(#{picture},#{student_id},#{date})
   </insert>
 
+  <select id="getAllByManId" resultType="com.haiyu.manager.pojo.Cases">
+    SELECT *
+    FROM cases
+    WHERE flag = 0 AND student_id IN (
+        SELECT s.id
+        FROM student AS s
+        WHERE manager_id = #{managerId})
+    </select>
 
 
 </mapper>

@@ -60,12 +60,12 @@ public class DiseaseController {
             return "redirect:/disease/index";
         }
         if (type.equals("疾病搜索")) {
-            System.out.println("开始重定向" + type);
+            System.out.println("请求转发" + type);
             return "forward:/disease/search";
         }
 
 
-        System.out.println("开始重定向" + type);
+        System.out.println("请求转发" + type);
 //        request.getRequestDispatcher("/disease/index").forward(request,response);
 //        return "forward:/disease/index";
         return "forward:/health/search";

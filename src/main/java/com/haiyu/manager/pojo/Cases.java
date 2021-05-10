@@ -1,6 +1,7 @@
 package com.haiyu.manager.pojo;
 
 import javax.persistence.*;
+import java.util.Date;
 
 /**
  * @ClassName Cases
@@ -17,6 +18,10 @@ public class Cases {
     private String picture;
     @Column(name = "student_id")
     private Integer student_id;
+    @Column(name = "date")
+    private String date;
+    @Column(name = "flag")
+    private Integer flag;
 
 
     public Integer getId() {
@@ -43,12 +48,30 @@ public class Cases {
         this.student_id = student_id;
     }
 
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public Integer getFlag() {
+        return flag;
+    }
+
+    public void setFlag(Integer flag) {
+        this.flag = flag;
+    }
+
     @Override
     public String toString() {
         return "Cases{" +
                 "id=" + id +
                 ", picture='" + picture + '\'' +
-                ", studentId=" + student_id +
+                ", student_id=" + student_id +
+                ", date='" + date + '\'' +
+                ", flag=" + flag +
                 '}';
     }
 }

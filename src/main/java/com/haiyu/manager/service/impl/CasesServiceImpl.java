@@ -47,4 +47,15 @@ public class CasesServiceImpl implements CasesService {
         System.out.println("插入结果："+ result);
         return result;
     }
+
+    @Override
+    public List<Cases> getAllByManId(int managerId) {
+        List<Cases> list = casesMapper.getAllByManId(managerId);
+        for(Cases cases:list){
+            System.out.println(cases.toString());
+            System.out.println(cases.getStudent_id());
+
+        }
+        return list;
+    }
 }

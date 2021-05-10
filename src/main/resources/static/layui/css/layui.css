@@ -1549,6 +1549,7 @@ a cite {
 }
 
 .layui-progress {
+    width: 200px;
     position: relative;
     height: 6px;
     border-radius: 20px;
