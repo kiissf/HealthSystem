@@ -58,4 +58,13 @@ public class CasesServiceImpl implements CasesService {
         }
         return list;
     }
+
+    @Override
+    public Cases getById(int id) {
+        Cases cases = casesMapper.getById(id);
+
+            System.out.println(cases.toString());
+
+        return cases;
+    }
 }

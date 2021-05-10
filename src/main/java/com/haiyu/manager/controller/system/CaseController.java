@@ -105,21 +105,17 @@ public class CaseController {
         //获取studentId
         Integer id = Integer.valueOf(request.getParameter("id"));
         System.out.println(id+"删除的顺序");
+        Cases cases = casesService.getById(id);
         List<Cases> casesList = (List<Cases>) session.getAttribute("casesList");
-        Cases cases = new Cases();
-        cases.setId(id);
-        casesList.remove(cases);
-/*        Iterator<Cases> iterator = casesList.iterator();
 
-        int count = 0;
+       Iterator<Cases> iterator = casesList.iterator();
         while (iterator.hasNext()) {
-            Cases cases = iterator.next();
-            if (index==count) {
+            Cases cases1 = iterator.next();
+            if(cases1.getId()==id){
                 iterator.remove();//使用迭代器的删除方法删除
                 break;
             }
-            count++;
-        }*/
+        }
         if(casesList.size()!=0){
             session.setAttribute("casesList",casesList);
         }

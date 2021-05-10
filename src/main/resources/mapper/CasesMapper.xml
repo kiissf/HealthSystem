@@ -24,6 +24,12 @@
     WHERE student_id = #{stuId}
   </select>
 
+  <select id="getById" resultMap="CasesResultMap">
+    SELECT *
+    FROM cases
+    WHERE id = #{id}
+  </select>
+
   <insert id="insertCases" parameterType="com.haiyu.manager.pojo.Cases">
     insert into cases(picture,student_id,date) values(#{picture},#{student_id},#{date})
   </insert>

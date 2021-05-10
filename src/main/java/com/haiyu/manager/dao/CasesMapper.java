@@ -19,6 +19,7 @@ import java.util.List;
 public interface CasesMapper extends MyMapper<Cases> {
     List<Cases> getAll();
     List<Cases> getAllByStuId(@Param("stuId") int stuId);
+    Cases getById(@Param("id") int id);
     boolean insertCases(Cases cases);
     List<Cases> getAllByManId(@Param("managerId") int managerId);
 
