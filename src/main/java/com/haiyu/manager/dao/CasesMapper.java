@@ -22,5 +22,7 @@ public interface CasesMapper extends MyMapper<Cases> {
     Cases getById(@Param("id") int id);
     boolean insertCases(Cases cases);
     List<Cases> getAllByManId(@Param("managerId") int managerId);
+    boolean updateCase(@Param("id") int id);
+
 
 }

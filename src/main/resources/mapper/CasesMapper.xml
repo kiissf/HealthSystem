@@ -43,5 +43,10 @@
         WHERE manager_id = #{managerId})
     </select>
 
+  <update id="updateCase">
+    UPDATE cases
+    set flag = 1
+    where id = #{id}
+  </update>
 
 </mapper>

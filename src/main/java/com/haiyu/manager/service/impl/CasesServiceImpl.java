@@ -67,4 +67,10 @@ public class CasesServiceImpl implements CasesService {
 
         return cases;
     }
+
+    @Override
+    public boolean updateCase(int id) {
+        casesMapper.updateCase(id);
+        return true;
+    }
 }

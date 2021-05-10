@@ -18,4 +18,5 @@ public interface CasesService {
     boolean insertCases(Cases cases);
     List<Cases> getAllByManId(@Param("managerId") int managerId);
     Cases getById(@Param("id") int id);
+    boolean updateCase(@Param("id") int id);
 }

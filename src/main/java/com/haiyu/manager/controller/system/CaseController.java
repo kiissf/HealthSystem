@@ -112,6 +112,7 @@ public class CaseController {
         while (iterator.hasNext()) {
             Cases cases1 = iterator.next();
             if(cases1.getId()==id){
+                casesService.updateCase(id);
                 iterator.remove();//使用迭代器的删除方法删除
                 break;
             }
