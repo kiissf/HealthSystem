@@ -13,16 +13,17 @@
            style="text-align: center;font-weight: bold;color: #0C0C0C; font-size: 18px; "></p>
     </div>
     <div id="div_author"
-         style="width: 1000px;height: 100px;margin: 0 auto; font-size: 12px;margin-top: 20px; ">
-        <span id="author" th:text="${session.sessDisease.getDisDescription()}" style="text-align: center;"></span>
+         style="width: 1000px;display: flex;justify-content: space-between;margin: 0 auto;margin-top: 20px; ">
+        <span id="author" th:text="'描述：  '+${session.sessDisease.getDisDescription()}"
+              style="text-align: center;"></span>
     </div>
     <div id="div_content"
-         style="width: 1000px;height: 150px;margin: 0 auto;margin-top: 30px;">
-        <p id="content" th:text="${session.sessDisease.getDisPrevention()}" style="text-indent: 2em;"></p>
+         style="width: 1000px;margin: 0 auto;margin-top: 10px;display: flex;justify-content: space-between">
+        <p id="content" th:text="'预防：   '+${session.sessDisease.getDisPrevention()}"></p>
     </div>
     <div id="div_time"
-         style="width: 1000px;height: 20px;margin: 0 auto; font-size: 12px;margin-top: 20px; ">
-        <span id="time" th:text="${session.sessDisease.getDisTaboo()}" style="text-align: center; "></span>
+         style="width: 1000px;display: flex;justify-content: space-between;margin: 0 auto; margin-top: 10px; ">
+        <span id="time" th:text="'禁忌：  '+${session.sessDisease.getDisTaboo()}" style="text-align: center; "></span>
 
     </div>
 </div>

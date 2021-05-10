@@ -2,10 +2,8 @@
 * 显示健康信息的js
 *
 * */
-
 var form;
 $(function () {
-
     layui.use('table', function () {
         var table = layui.table;
         form = layui.form;
