@@ -19,6 +19,34 @@
     <script src="/layui/layui.js"></script>
     <script src="/js/checkParam.js"></script>
     <script src="/js/common.js"></script>
+    <style type="text/css">
+        table {
+            border-collapse: collapse;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        table td, table th {
+            border: 1px solid #cad9ea;
+            color: #666;
+            height: 50px;
+        }
+
+        table thead th {
+            background-color: #CCE8EB;
+            width: 100px;
+        }
+
+        table tr:nth-child(odd) {
+            background: #fff;
+            width: 50px;
+        }
+
+        table tr:nth-child(even) {
+            background: #F5FAFA;
+        }
+    </style>
+
 
 </head>
 <body class="layui-layout-body">
@@ -48,7 +76,7 @@
                     </form>
 
                     <th:block th:if="${diseases} != null">
-                        <table>
+                        <table class="table">
                             <tr>
                                 <th>序号</th>
                                 <th>病毒名称</th>
@@ -66,8 +94,7 @@
                         </table>
                     </th:block>
                     <th:block th:if="${healths} != null">
-
-                        <table>
+                        <table class="table">
                             <tr>
                                 <th>序号</th>
                                 <th>标题</th>
